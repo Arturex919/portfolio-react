@@ -1,89 +1,96 @@
 import React from 'react';
-import { Code2, Server, Wrench, GraduationCap, Briefcase } from 'lucide-react';
+import { skills, education, experience, certifications } from '../data/portfolioData';
+import { useParallax } from '../hooks/useParallax';
+import CertificationsCarousel from '../Components/CertificationsCarousel';
 
 export default function About() {
-    const skills = [
-        { category: 'Frontend', icon: <Code2 size={20}/>, items: ['HTML5', 'CSS3', 'JavaScript', 'React (Básico)', 'Bootstrap'] },
-        { category: 'Backend & BD', icon: <Server size={20}/>, items: ['Java', 'Python (En curso)', 'Springboot', 'MySQL', 'MongoDB'] },
-        { category: 'Herramientas', icon: <Wrench size={20}/>, items: ['Git', 'GitHub', 'VS Code', 'IntelliJ IDEA', 'AWS', 'AutoCAD'] }
-    ];
+    const headerOffset = useParallax(0.12);
 
     return (
-        <div className="container py-5">
-            <h2 className="mb-5 text-center fw-bold border-bottom pb-3">Sobre Mí</h2>
-
-            <div className="row mb-5">
-                <div className="col-lg-8 mx-auto text-center">
-                    <p className="lead text-secondary">
-                        Destaco por mi actitud proactiva, capacidad de aprendizaje continuo y compromiso con el trabajo en equipo. Busco desarrollarme como programador junior aportando valor en entornos tecnológicos innovadores.
+        <div className="about-page py-5">
+            <section className="page-hero mb-5 overflow-hidden">
+                <div className="container" style={{ transform: `translateY(${headerOffset}px)` }}>
+                    <h1 className="display-4 fw-bold mb-3 mt-5">Sobre Mí</h1>
+                    <p className="text-muted small text-uppercase letter-spacing-1 mb-5" style={{ maxWidth: '600px' }}>
+                        Desarrollador apasionado por la simplicidad y la eficacia. 
+                        Mi enfoque se centra en crear código limpio y experiencias de usuario que eliminan lo innecesario.
                     </p>
                 </div>
-            </div>
+            </section>
 
-            <h3 className="mb-4 h4 fw-bold text-primary"><Wrench className="me-2"/> Habilidades Técnicas</h3>
-            <div className="row mb-5">
-                {skills.map((skillGroup, idx) => (
-                    <div className="col-md-4 mb-4" key={idx}>
-                        <div className="card h-100 border-0 shadow-sm bg-light">
-                            <div className="card-body">
-                                <h5 className="card-title d-flex align-items-center gap-2 mb-3 text-dark">
-                                    {skillGroup.icon} {skillGroup.category}
-                                </h5>
+            <section className="about-content pb-5">
+                <div className="container">
+                    <div className="row mb-5">
+                        <div className="col-lg-8">
+                            <p className="text-dark leading-relaxed mb-0">
+                                Destaco por mi actitud proactiva, capacidad de aprendizaje continuo y compromiso con el trabajo en equipo. 
+                                Busco desarrollarme como programador junior aportando valor en entornos tecnológicos innovadores 
+                                donde la calidad del diseño y la arquitectura del software sean primordiales.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Skills Grid */}
+                    <div className="row g-4 mb-5 pb-5 border-bottom border-color">
+                        {skills.map((skillGroup, idx) => (
+                            <div className="col-md-4" key={idx}>
+                                <h3 className="h6 fw-bold text-uppercase mb-4">{skillGroup.category}</h3>
                                 <div className="d-flex flex-wrap gap-2">
                                     {skillGroup.items.map((skill, i) => (
-                                        <span key={i} className="badge bg-white text-dark border border-secondary">{skill}</span>
+                                        <span key={i} className="tech-badge-minimal small text-muted">
+                                            {skill}
+                                        </span>
                                     ))}
                                 </div>
                             </div>
+                        ))}
+                    </div>
+
+                    {/* Experience & Education */}
+                    <div className="row g-5">
+                        <div className="col-lg-6">
+                            <h2 className="h5 fw-bold text-uppercase mb-5 letter-spacing-1">Experiencia</h2>
+                            <div className="timeline-minimal">
+                                {experience.map((exp, idx) => (
+                                    <div className="mb-5 animate-on-scroll" key={idx}>
+                                        <div className="d-flex justify-content-between align-items-start mb-2">
+                                            <h3 className="h6 fw-bold mb-0">{exp.title}</h3>
+                                            <span className="text-muted x-small text-uppercase">{exp.period}</span>
+                                        </div>
+                                        <p className="text-accent small mb-3">{exp.company}</p>
+                                        <ul className="list-unstyled text-muted small leading-relaxed">
+                                            {exp.responsibilities.map((resp, i) => (
+                                                <li key={i} className="mb-1">— {resp}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="col-lg-6">
+                            <h2 className="h5 fw-bold text-uppercase mb-5 letter-spacing-1">Educación</h2>
+                            <div className="timeline-minimal">
+                                {education.map((edu, idx) => (
+                                    <div className="mb-5 animate-on-scroll" key={idx}>
+                                        <div className="d-flex justify-content-between align-items-start mb-2">
+                                            <h3 className="h6 fw-bold mb-0">{edu.title}</h3>
+                                            <span className="text-muted x-small text-uppercase">{edu.period}</span>
+                                        </div>
+                                        <p className="text-accent small mb-3">{edu.institution}</p>
+                                        <p className="text-muted small leading-relaxed">{edu.description}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
-                ))}
-            </div>
 
-            <div className="row">
-                <div className="col-md-6 mb-4">
-                    <h3 className="mb-4 h4 fw-bold text-primary"><GraduationCap className="me-2"/> Educación</h3>
-                    <div className="timeline-item mb-4 border-start border-primary border-3 ps-3">
-                        <h5 className="fw-bold mb-1">Grado Superior en DAW</h5>
-                        <p className="text-primary fw-bold mb-1">IES Alvaro Falomir | 2024 - Actualidad</p>
-                        <p className="text-secondary small">Desarrollo de Aplicaciones Web</p>
-                    </div>
-                    <div className="timeline-item mb-4 border-start border-secondary border-3 ps-3">
-                        <h5 className="fw-bold mb-1">Ciclo Superior en Mecánica Naval</h5>
-                        <p className="text-secondary fw-bold mb-1">IST Luis Arboleda Martínez | 2020 - 2023</p>
-                        <p className="text-secondary small">Ecuador</p>
-                    </div>
-                    <div className="timeline-item border-start border-secondary border-3 ps-3">
-                        <h5 className="fw-bold mb-1">Formación Adicional</h5>
-                        <ul className="text-secondary small mb-0 ps-3">
-                            <li>Ciberseguridad (Google) - En curso</li>
-                            <li>Data Science (IBM/Coursera) - En curso</li>
-                            <li>Desarrollo Web con Python (IBM) - En curso</li>
-                        </ul>
+                    {/* Certifications Carousel Section */}
+                    <div className="mt-5 pt-5 border-top border-color">
+                        <CertificationsCarousel />
                     </div>
                 </div>
-
-                <div className="col-md-6 mb-4">
-                    <h3 className="mb-4 h4 fw-bold text-primary"><Briefcase className="me-2"/> Experiencia Laboral</h3>
-                    <div className="timeline-item mb-4 border-start border-primary border-3 ps-3">
-                        <h5 className="fw-bold mb-1">Reposición y Atención en Caja</h5>
-                        <p className="text-primary fw-bold mb-1">Charter (Almassora) | Jul 2025 - Oct 2025</p>
-                        <ul className="text-secondary small mb-0 ps-3">
-                            <li>Gestión de inventario y control de stocks.</li>
-                            <li>Apoyo en almacén y recepción de mercancía.</li>
-                        </ul>
-                    </div>
-                    <div className="timeline-item border-start border-secondary border-3 ps-3">
-                        <h5 className="fw-bold mb-1">Asistente Técnico</h5>
-                        <p className="text-secondary fw-bold mb-1">Smart Net (Ecuador) | Feb 2024 - May 2024</p>
-                        <ul className="text-secondary small mb-0 ps-3">
-                            <li>Instalación y mantenimiento de redes de fibra óptica.</li>
-                            <li>Soporte técnico y atención al cliente.</li>
-                            <li>Armado de NAPs y configuración de troncales.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
     );
 }

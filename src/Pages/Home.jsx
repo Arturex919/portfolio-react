@@ -1,44 +1,66 @@
 import React from 'react';
-import { Briefcase, User, Mail } from 'lucide-react';
-// Importamos la imagen usando el nombre correcto que aparece en tu VS Code
-import miFoto from '../foto.png';
+import { Link } from 'react-router-dom';
+import miFoto from '../foto.jpeg';
+import { personalInfo } from '../data/portfolioData';
+import { useParallax } from '../hooks/useParallax';
 
-export default function Home({ setCurrentPage }) {
+export default function Home() {
+    const textOffset = useParallax(0.1);
+    const imageOffset = useParallax(-0.05);
+
     return (
-        <div className="container py-5 d-flex flex-column justify-content-center min-vh-100" style={{ marginTop: '-70px' }}>
-            <div className="row align-items-center">
-                <div className="col-lg-8 order-2 order-lg-1 text-center text-lg-start">
-                    <h2 className="text-secondary mb-2 h4">¡Hola! Soy</h2>
-                    <h1 className="display-3 fw-bold text-dark mb-3">Arturo Tuarez Calle</h1>
-                    <h3 className="text-primary mb-4 h2">Desarrollador Web en formación</h3>
-                    <p className="lead text-secondary mb-4">
-                        Estudiante del Grado Superior en Desarrollo de Aplicaciones Web (DAW).
-                        Apasionado por la tecnología, con sólida base en HTML, CSS, JavaScript y bases de datos.
-                    </p>
-                    <div className="d-flex gap-3 flex-wrap justify-content-center justify-content-lg-start">
-                        <button className="btn btn-primary btn-lg px-4 d-flex align-items-center gap-2" onClick={() => setCurrentPage('Projects')}>
-                            <Briefcase size={20} /> Proyectos
-                        </button>
-                        <button className="btn btn-outline-dark btn-lg px-4 d-flex align-items-center gap-2" onClick={() => setCurrentPage('About')}>
-                            <User size={20} /> Sobre Mí
-                        </button>
-                        <button className="btn btn-dark btn-lg px-4 d-flex align-items-center gap-2" onClick={() => setCurrentPage('Contact')}>
-                            <Mail size={20} /> Contactar
-                        </button>
+        <div className="home-page parallax-container">
+            <section className="hero-section min-vh-100 d-flex align-items-center">
+                <div className="container">
+                    <div className="row align-items-center">
+                        <div className="col-lg-7">
+                            <div 
+                                className="hero-content animate-fade-in-up"
+                                style={{ transform: `translateY(${textOffset}px)` }}
+                            >
+                                <div className="hero-greeting">
+                                    <span className="greeting-text text-uppercase letter-spacing-1 small">Desarrollador Web Full Stack</span>
+                                </div>
+                                
+                                <h1 className="hero-name display-4 fw-bold mt-2 mb-4">{personalInfo.name}</h1>
+                                
+                                <p className="hero-description text-muted mb-5 leading-relaxed" style={{ maxWidth: '90%' }}>
+                                    Especializado en crear soluciones digitales elegantes, funcionales y escalables. 
+                                    Transformo ideas complejas en experiencias de usuario intuitivas y minimalistas 
+                                    orientadas a la eficiencia tecnológica.
+                                </p>
+                                
+                                <div className="hero-cta d-flex gap-3">
+                                    <Link to="/projects" className="btn-modern btn-primary-modern" viewTransition>
+                                        Ver Proyectos
+                                    </Link>
+                                    <Link to="/contact" className="btn-modern btn-outline-modern" viewTransition>
+                                        Contactar
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="col-lg-5 d-none d-lg-block">
+                            <div 
+                                className="hero-image-minimal animate-fade-in"
+                                style={{ transform: `translateY(${imageOffset}px)` }}
+                            >
+                                <div className="image-frame">
+                                    <img
+                                        src={miFoto}
+                                        alt={personalInfo.name}
+                                        className="minimal-profile-image"
+                                        width={380}
+                                        height={380}
+                                        loading="eager"
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div className="col-lg-4 order-1 order-lg-2 mb-5 mb-lg-0 text-center">
-                    <div className="rounded-circle bg-light d-inline-flex align-items-center justify-content-center mx-auto shadow-lg"
-                         style={{ width: '250px', height: '250px', overflow: 'hidden', border: '5px solid white' }}>
-                        <img
-                            src={miFoto}
-                            alt="Arturo Tuarez"
-                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        />
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
     );
 }

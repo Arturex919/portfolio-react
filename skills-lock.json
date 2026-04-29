@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "form-design": {
+      "source": "dembrandt/dembrandt-skills",
+      "sourceType": "github",
+      "skillPath": "skills/form-design/SKILL.md",
+      "computedHash": "1599591564370af1268d7322cd3cc4cd99607d708f207306692c7e7a35783419"
+    }
+  }
+}

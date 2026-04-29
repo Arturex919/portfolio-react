@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(C:\\Users\\artur\\Downloads/**)",
+      "WebFetch(github.com)",
+      "WebFetch(stately-rabanadas-51f7e9.netlify.app)",
+      "WebFetch(ods2s.netlify.app)"
+    ]
+  },
+  "$version": 3
+}

@@ -1,30 +1,41 @@
 import React from 'react';
 import { Github, ExternalLink } from 'lucide-react';
 
-export default function ProjectCard({ title, description, techStack, repoLink, demoLink }) {
+export default function ProjectCard({ title, description, techStack, repoLink, demoLink, category }) {
     return (
-        <div className="col-12 col-md-6 col-lg-4 mb-4">
-            <div className="card h-100 shadow-sm border-0 bg-light">
-                <div className="card-body d-flex flex-column">
-                    <h5 className="card-title fw-bold text-dark">{title}</h5>
-                    <p className="card-text text-secondary flex-grow-1">{description}</p>
+        <div className="col-lg-6 mb-4 animate-on-scroll">
+            <div className="project-card-minimal h-100 p-4 border border-color hover-shadow-soft transition">
+                <div className="d-flex flex-column h-100">
                     <div className="mb-3">
-                        {techStack.map((tech, index) => (
-                            <span key={index} className="badge bg-primary me-1 mb-1">{tech}</span>
-                        ))}
+                        <span className="text-accent x-small text-uppercase letter-spacing-1 mb-1 d-block">
+                            {category || 'Desarrollo'}
+                        </span>
+                        <h4 className="fw-bold h6 mb-2">{title}</h4>
+                        <p className="text-muted small leading-relaxed mb-4">{description}</p>
                     </div>
-                    <div className="d-flex gap-2 mt-auto">
-                        <a href={repoLink} target="_blank" rel="noreferrer" className="btn btn-outline-dark btn-sm d-flex align-items-center gap-1">
-                            <Github size={16} /> Código
-                        </a>
-                        {demoLink && (
-                            <a href={demoLink} target="_blank" rel="noreferrer" className="btn btn-primary btn-sm d-flex align-items-center gap-1">
-                                <ExternalLink size={16} /> Demo
+
+                    <div className="mt-auto">
+                        <div className="d-flex flex-wrap gap-2 mb-4">
+                            {techStack.map((tech, index) => (
+                                <span key={index} className="tech-badge-minimal small text-muted">
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                        
+                        <div className="d-flex gap-4 border-top pt-3">
+                            <a href={repoLink} target="_blank" rel="noreferrer" className="text-dark small text-decoration-none d-flex align-items-center gap-1 hover-accent transition">
+                                <Github size={14} /> <span>GitHub</span>
                             </a>
-                        )}
+                            {demoLink && (
+                                <a href={demoLink} target="_blank" rel="noreferrer" className="text-dark small text-decoration-none d-flex align-items-center gap-1 hover-accent transition">
+                                    <ExternalLink size={14} /> <span>En vivo</span>
+                                </a>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     );
-}
+}

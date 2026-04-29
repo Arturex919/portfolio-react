@@ -1,0 +1,121 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1776264714207,
+  "projectRoot": "C:\\Users\\artur\\WebstormProjects\\Portfolio\\portfolio-react",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "react",
+        "version": "19.2.0",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.2.0",
+        "category": "frontend"
+      },
+      {
+        "name": "vite",
+        "version": "7.2.4",
+        "category": "build"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": null,
+    "lintCommand": "npm run lint",
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "lint": "eslint .",
+      "preview": "vite preview"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": "type-based"
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "public",
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 1,
+      "lastAccessed": 1776264714126,
+      "keyFiles": [
+        "vite.svg"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 5,
+      "lastAccessed": 1776264714128,
+      "keyFiles": [
+        "App.css",
+        "App.jsx",
+        "foto.png",
+        "index.css",
+        "main.jsx"
+      ]
+    },
+    "src\\assets": {
+      "path": "src\\assets",
+      "purpose": "Static assets",
+      "fileCount": 1,
+      "lastAccessed": 1776264714150,
+      "keyFiles": [
+        "react.svg"
+      ]
+    },
+    "src\\Components": {
+      "path": "src\\Components",
+      "purpose": "UI components",
+      "fileCount": 3,
+      "lastAccessed": 1776264714152,
+      "keyFiles": [
+        "Footer.jsx",
+        "Header.jsx",
+        "ProjectCard.jsx"
+      ]
+    },
+    "src\\Pages": {
+      "path": "src\\Pages",
+      "purpose": "Page components",
+      "fileCount": 4,
+      "lastAccessed": 1776264714153,
+      "keyFiles": [
+        "About.jsx",
+        "Contact.jsx",
+        "Home.jsx"
+      ]
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}
