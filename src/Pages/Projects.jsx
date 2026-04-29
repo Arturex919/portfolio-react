@@ -14,11 +14,17 @@ export default function Projects() {
         { id: 'backend', label: 'BACKEND' }
     ], []);
 
-    const filteredProjects = useMemo(() => 
-        activeFilter === 'all' 
-            ? projects 
-            : projects.filter(p => p.category === activeFilter)
-    , [activeFilter]);
+    const filteredProjects = useMemo(() => {
+        const sortedProjects = [...projects].sort((a, b) => {
+            if (a.featured && !b.featured) return -1;
+            if (!a.featured && b.featured) return 1;
+            return 0;
+        });
+
+        return activeFilter === 'all' 
+            ? sortedProjects 
+            : sortedProjects.filter(project => project.category === activeFilter);
+    }, [activeFilter]);
 
     return (
         <div className="projects-page py-5">

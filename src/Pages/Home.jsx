@@ -44,7 +44,7 @@ export default function Home() {
                         <div className="col-lg-5 d-none d-lg-block">
                             <div 
                                 className="hero-image-minimal animate-fade-in"
-                                style={{ transform: `translateY(${imageOffset}px)` }}
+                                style={{ transform: `translateY(${imageOffset * 1.5}px)` }}
                             >
                                 <div className="image-frame">
                                     <img
@@ -53,7 +53,7 @@ export default function Home() {
                                         className="minimal-profile-image"
                                         width={380}
                                         height={380}
-                                        loading="eager"
+                                        loading="lazy"
                                     />
                                 </div>
                             </div>

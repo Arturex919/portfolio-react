@@ -81,10 +81,10 @@ export default function Header() {
                         <a 
                             href={personalInfo.cvUrl} 
                             download 
-                            className="btn-modern btn-outline-modern btn-sm"
+                            className="hover-underline text-uppercase x-small letter-spacing-1 fw-bold text-dark text-decoration-none"
                             title="Descargar CV"
                         >
-                            <span>CV</span>
+                            CV
                         </a>
                     </div>
 

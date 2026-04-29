@@ -3,23 +3,17 @@
   --primary: #1a1a1a;
   --primary-dark: #000000;
   --primary-light: #333333;
-  --secondary: #4a4a4a;
-  --accent: #d4af37;
-  --dark: #121212;
+  --accent: #d4af37; /* Gold for premium feel */
+  --secondary: #666666;
+  --dark: #1a1a1a;
   --light: #fdfdfd;
   --white: #ffffff;
-  --gray: #757575;
-  --gray-light: #f2f2f2;
-  --gray-dark: #424242;
-  --bg-color: var(--light);
-  --text-color: var(--primary);
+  --gray: #888888;
+  --gray-light: #f5f5f5;
+  --gray-dark: #333333;
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
   --border-color: rgba(0, 0, 0, 0.08);
-  --card-bg: var(--white);
-  
-  --gradient-minimal: linear-gradient(135deg, #fdfdfd 0%, #f2f2f2 100%);
-  
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.08);
   
   --radius-sm: 1px;
@@ -1921,15 +1915,16 @@ ul, ol {
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--border-color);
-  padding: 10px 0;
+  padding: 8px 0;
   font-family: var(--font-primary);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   transition: var(--transition-fast);
   outline: none;
+  color: var(--text-color);
 }
 
 .form-control-minimal:focus {
-  border-bottom-color: var(--accent);
+  border-bottom-color: var(--primary);
 }
 
 .btn-filter {
@@ -1966,11 +1961,13 @@ ul, ol {
 }
 
 .tech-badge-minimal {
-  font-size: 0.65rem;
-  padding: 4px 10px;
+  font-size: 0.6rem;
+  padding: 3px 8px;
   border: 1px solid var(--border-color);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  color: var(--gray) !important;
+  background: transparent;
 }
 
 .hover-accent:hover {
@@ -2048,3 +2045,10 @@ ul, ol {
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
+
+html { font-size: 14.5px !important; }
+section { padding: 40px 0 !important; }
+
+
+.hover-dark:hover { color: var(--primary) !important; }
+

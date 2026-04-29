@@ -15,13 +15,13 @@ export default function ProjectCard({ title, description, techStack, repoLink, d
                     </div>
 
                     <div className="mt-auto">
-                        <div className="d-flex flex-wrap gap-2 mb-4">
-                            {techStack.map((tech, index) => (
-                                <span key={index} className="tech-badge-minimal small text-muted">
-                                    {tech}
-                                </span>
-                            ))}
-                        </div>
+                        <div className="d-flex flex-wrap gap-2 mt-auto">
+                        {techStack.map((tech, idx) => (
+                            <span key={idx} className="tech-badge-minimal">
+                                {tech}
+                            </span>
+                        ))}
+                    </div>
                         
                         <div className="d-flex gap-4 border-top pt-3">
                             <a href={repoLink} target="_blank" rel="noreferrer" className="text-dark small text-decoration-none d-flex align-items-center gap-1 hover-accent transition">
