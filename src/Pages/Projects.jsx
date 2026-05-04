@@ -2,38 +2,43 @@ import React, { useState, useMemo } from 'react';
 import ProjectCard from '../Components/ProjectCard';
 import { projects } from '../data/portfolioData';
 import { useParallax } from '../hooks/useParallax';
+import { useTranslation } from 'react-i18next';
 
 export default function Projects() {
     const [activeFilter, setActiveFilter] = useState('all');
     const headerOffset = useParallax(0.15);
+    const { t } = useTranslation();
 
     const filters = useMemo(() => [
-        { id: 'all', label: 'TODOS' },
-        { id: 'frontend', label: 'FRONTEND' },
-        { id: 'fullstack', label: 'FULL STACK' },
-        { id: 'backend', label: 'BACKEND' }
-    ], []);
+        { id: 'all', label: (t('projects.categories.all') || '').toString().toUpperCase() },
+        { id: 'frontend', label: (t('projects.categories.frontend') || '').toString().toUpperCase() },
+        { id: 'fullstack', label: (t('projects.categories.fullstack') || '').toString().toUpperCase() },
+        { id: 'backend', label: (t('projects.categories.backend') || '').toString().toUpperCase() }
+    ], [t]);
 
     const filteredProjects = useMemo(() => {
-        const sortedProjects = [...projects].sort((a, b) => {
-            if (a.featured && !b.featured) return -1;
-            if (!a.featured && b.featured) return 1;
+        const sortedProjects = [...(projects || [])].sort((a, b) => {
+            if (a?.featured && !b?.featured) return -1;
+            if (!a?.featured && b?.featured) return 1;
             return 0;
         });
 
-        return activeFilter === 'all' 
-            ? sortedProjects 
-            : sortedProjects.filter(project => project.category === activeFilter);
-    }, [activeFilter]);
+        if (activeFilter === 'all') return sortedProjects;
+        
+        return sortedProjects.filter(project => {
+            const cat = project?.category?.toString().toLowerCase();
+            const filter = activeFilter.toLowerCase();
+            return cat === filter;
+        });
+    }, [activeFilter, projects]);
 
     return (
         <div className="projects-page py-5">
             <section className="page-hero mb-5 overflow-hidden">
                 <div className="container" style={{ transform: `translateY(${headerOffset}px)` }}>
-                    <h1 className="display-4 fw-bold mb-3 mt-5">Proyectos</h1>
+                    <h1 className="display-4 fw-bold mb-3 mt-5">{t('nav.projects')}</h1>
                     <p className="text-muted small text-uppercase letter-spacing-1 mb-5" style={{ maxWidth: '600px' }}>
-                        Una selección curada de trabajos que demuestran mi capacidad para resolver problemas 
-                        mediante código limpio y soluciones eficientes orientadas a resultados técnicos.
+                        {t('projects.description')}
                     </p>
                 </div>
             </section>
@@ -77,12 +82,12 @@ export default function Projects() {
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-8">
-                            <h3 className="fw-bold h5 mb-2">¿Te interesa ver el proceso detrás del código?</h3>
-                            <p className="text-muted small">Explora mis repositorios completos en GitHub para ver la arquitectura y el historial de commits.</p>
+                            <h3 className="fw-bold h5 mb-2">{t('projects.githubTitle')}</h3>
+                            <p className="text-muted small">{t('projects.githubText')}</p>
                         </div>
                         <div className="col-lg-4 text-lg-end mt-4 mt-lg-0">
                             <a href="https://github.com/Arturex919" target="_blank" rel="noreferrer" className="btn-modern btn-primary-modern btn-sm">
-                                Ver Repositorios
+                                {t('projects.viewRepo')}
                             </a>
                         </div>
                     </div>

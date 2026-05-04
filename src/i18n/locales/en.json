@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Full Stack Web Developer",
+    "subtitle": "Full Stack Developer - Java, Spring Boot, React, MySQL",
+    "fiverrTitle": "Web Developer - WordPress, HTML, CSS, JavaScript",
+    "description": "Full Stack student (DAW) specialized in frontend and backend. Focused on creating efficient solutions with clean code.",
+    "cta": "View Projects",
+    "cv": "Download CV"
+  },
+  "sections": {
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "projects": "Featured Projects",
+    "certifications": "Certifications",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "About Me",
+    "text1": "Focused on creating efficient solutions through clean code.",
+    "text2": "Currently studying DAW and intern at Rental Holidays, applying my knowledge in real-world projects."
+  },
+  "projects": {
+    "viewDemo": "Live Demo",
+    "viewRepo": "View Code",
+    "description": "Selected projects focused on efficiency and code quality.",
+    "githubTitle": "Interested in the process?",
+    "githubText": "Explore my GitHub repositories for full code history.",
+    "categories": {
+      "all": "All",
+      "frontend": "Frontend",
+      "fullstack": "Full Stack",
+      "backend": "Backend"
+    },
+    "ods2": {
+      "title": "SDG 2: Zero Hunger",
+      "description": "Web project focused on awareness of UN Sustainable Development Goal 2. Responsive, semantic interface with integrated multimedia content."
+    },
+    "restaurant": {
+      "title": "Restaurant Website",
+      "description": "Complete restaurant website with ordering system, interactive menu, dark mode, and shopping cart. Optimized UX/UI."
+    },
+    "inventory": {
+      "title": "Inventory Manager",
+      "description": "Full stack application to manage product stock with REST API, inspired by previous logistics experience. Complete CRUD with authentication."
+    },
+    "fitapp": {
+      "title": "FITAPP",
+      "description": "Fitness application with exercise tracking, personalized plans, and progress monitoring. Developed with TypeScript and React."
+    },
+    "billing": {
+      "title": "Billing SaaS",
+      "description": "Billing system as a web service with client management, invoice generation, and reports. Scalable architecture."
+    },
+    "holidays": {
+      "title": "Holidays & Shipping",
+      "description": "Python application for shipping and holiday management with complex business logic and data handling."
+    }
+  },
+  "education": {
+    "daw": {
+      "title": "Higher Degree in Web Application Development (DAW)",
+      "description": "Full stack web development training: HTML, CSS, JavaScript, PHP, Java, MySQL, Application deployment."
+    },
+    "additional": {
+      "title": "Additional Training",
+      "description": "Cybersecurity (Google), Data Science (IBM/Coursera), Web Development with Python (IBM)"
+    }
+  },
+  "experience": {
+    "rental": {
+      "title": "Web Developer (Internship)",
+      "resp1": "Development and maintenance of vacation rental management platforms.",
+      "resp2": "UI optimization and booking experience improvement.",
+      "resp3": "API integration and real-time data management."
+    },
+    "smartnet": {
+      "title": "Technical Assistant",
+      "resp1": "Installation and maintenance of fiber optic networks.",
+      "resp2": "Technical support and customer service.",
+      "resp3": "NAP assembly and trunk configuration."
+    }
+  },
+  "contact": {
+    "title": "Let's Talk",
+    "subtitle": "Have a project in mind? Contact me!",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "linkedin": "LinkedIn Profile",
+    "github": "GitHub",
+    "info": "Information",
+    "location": "Location",
+    "namePlaceholder": "e.g. Arturo Tuarez",
+    "messagePlaceholder": "Tell me more..."
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}

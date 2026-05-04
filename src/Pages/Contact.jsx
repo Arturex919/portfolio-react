@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { personalInfo } from '../data/portfolioData';
 import { useParallax } from '../hooks/useParallax';
+import { useTranslation } from 'react-i18next';
 
 export default function Contact() {
     const [formStatus, setFormStatus] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const headerOffset = useParallax(0.1);
+    const { t } = useTranslation();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -46,10 +48,9 @@ export default function Contact() {
         <div className="contact-page py-5">
             <section className="page-hero mb-5 overflow-hidden">
                 <div className="container" style={{ transform: `translateY(${headerOffset}px)` }}>
-                    <h1 className="display-4 fw-bold mb-3 mt-5">Contacto</h1>
+                    <h1 className="display-4 fw-bold mb-3 mt-5">{t('contact.title')}</h1>
                     <p className="text-muted small text-uppercase letter-spacing-1 mb-5" style={{ maxWidth: '600px' }}>
-                        ¿Tienes un proyecto en mente o simplemente quieres saludar? 
-                        Estoy abierto a nuevas oportunidades y colaboraciones tecnológicas.
+                        {t('contact.subtitle')}
                     </p>
                 </div>
             </section>
@@ -61,17 +62,19 @@ export default function Contact() {
                         <div className="col-lg-4">
                             <div className="contact-info-minimal">
                                 <div className="mb-5">
-                                    <h3 className="h6 fw-bold text-uppercase mb-4">Información</h3>
+                                    <h3 className="h6 fw-bold text-uppercase mb-4">{t('contact.info')}</h3>
                                     <div className="mb-4">
                                         <span className="text-muted x-small text-uppercase letter-spacing-1 d-block mb-1">Email</span>
                                         <a href={`mailto:${personalInfo.email}`} className="text-dark text-decoration-none hover-accent transition">{personalInfo.email}</a>
                                     </div>
                                     <div className="mb-4">
                                         <span className="text-muted x-small text-uppercase letter-spacing-1 d-block mb-1">LinkedIn</span>
-                                        <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className="text-dark text-decoration-none hover-accent transition">LinkedIn Profile</a>
+                                        <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className="text-dark text-decoration-none hover-accent transition">
+                                            {t('contact.linkedin')}
+                                        </a>
                                     </div>
                                     <div>
-                                        <span className="text-muted x-small text-uppercase letter-spacing-1 d-block mb-1">Ubicación</span>
+                                        <span className="text-muted x-small text-uppercase letter-spacing-1 d-block mb-1">{t('contact.location')}</span>
                                         <span className="text-dark">{personalInfo.location}</span>
                                     </div>
                                 </div>
@@ -100,21 +103,19 @@ export default function Contact() {
                                         <legend className="visually-hidden">Formulario de contacto</legend>
                                         <div className="row">
                                             <div className="col-md-6 mb-4">
-                                                <label htmlFor="name" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">Nombre</label>
+                                                <label htmlFor="name" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">{t('contact.name')}</label>
                                                 <input 
                                                     id="name"
                                                     type="text" 
                                                     name="name" 
                                                     className="form-control-minimal" 
-                                                    placeholder="Ej. Arturo Tuarez" 
+                                                    placeholder={t('contact.namePlaceholder')} 
                                                     required 
                                                     autoComplete="name"
-                                                    aria-describedby="name-helper"
                                                 />
-                                                <div id="name-helper" className="x-small text-muted mt-2 opacity-75">Tu nombre completo.</div>
                                             </div>
                                             <div className="col-md-6 mb-4">
-                                                <label htmlFor="email" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">Email</label>
+                                                <label htmlFor="email" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">{t('contact.email')}</label>
                                                 <input 
                                                     id="email"
                                                     type="email" 
@@ -123,44 +124,28 @@ export default function Contact() {
                                                     placeholder="arturo@ejemplo.com" 
                                                     required 
                                                     autoComplete="email"
-                                                    aria-describedby="email-helper"
                                                 />
-                                                <div id="email-helper" className="x-small text-muted mt-2 opacity-75">Donde recibirás mi respuesta.</div>
                                             </div>
                                         </div>
-                                        <div className="mb-4">
-                                            <label htmlFor="subject" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">Asunto</label>
-                                            <input 
-                                                id="subject"
-                                                type="text" 
-                                                name="subject" 
-                                                className="form-control-minimal" 
-                                                placeholder="Ej. Propuesta de proyecto" 
-                                                aria-describedby="subject-helper"
-                                            />
-                                            <div id="subject-helper" className="x-small text-muted mt-2 opacity-75">Motivo breve de tu mensaje.</div>
-                                        </div>
                                         <div className="mb-5">
-                                            <label htmlFor="message" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">Mensaje</label>
+                                            <label htmlFor="message" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">{t('contact.message')}</label>
                                             <textarea 
                                                 id="message"
                                                 name="message" 
                                                 className="form-control-minimal" 
                                                 rows="4" 
-                                                placeholder="Cuéntame los detalles..." 
+                                                placeholder={t('contact.messagePlaceholder')} 
                                                 required
-                                                aria-describedby="message-helper"
                                             ></textarea>
-                                            <div id="message-helper" className="x-small text-muted mt-2 opacity-75">Describe cómo puedo ayudarte.</div>
                                         </div>
                                         <button type="submit" className="btn-modern btn-primary-modern w-100 py-3 d-flex align-items-center justify-content-center gap-2" disabled={isSubmitting}>
                                             {isSubmitting ? (
                                                 <>
                                                     <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                                    <span>ENVIANDO...</span>
+                                                    <span>{t('contact.send').toUpperCase()}...</span>
                                                 </>
                                             ) : (
-                                                'ENVIAR MENSAJE'
+                                                t('contact.send').toUpperCase()
                                             )}
                                         </button>
                                     </fieldset>

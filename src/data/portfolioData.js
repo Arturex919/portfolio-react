@@ -1,14 +1,14 @@
 export const personalInfo = {
   name: 'Arturo Tuarez Calle',
   title: 'Desarrollador Web Full Stack',
-  description: 'Estudiante del Grado Superior en Desarrollo de Aplicaciones Web (DAW) con experiencia en frontend y backend. Apasionado por la tecnología, con sólida base en HTML, CSS, JavaScript, React, Java, Python y bases de datos. Busco desarrollarme como programador junior aportando valor en entornos tecnológicos innovadores.',
+  description: 'hero.description',
   photo: '../foto.jpeg',
   email: 'arturocalle0556@gmail.com',
   phone: '642-83-09-14',
   location: 'Almassora, Castellón',
-  linkedin: 'https://www.linkedin.com/in/eduardo-arturo-tuarez-calle-01917b170',
+  linkedin: 'https://www.linkedin.com/in/arturo-tuarez-calle-01917b170/',
   github: 'https://github.com/Arturex919',
-  cvUrl: '/cv-arturo-tuarez.pdf' // Update this when you add your CV to public/
+  cvUrl: '/cv-arturo-tuarez.pdf'
 };
 
 export const skills = [
@@ -37,46 +37,46 @@ export const skills = [
 
 export const education = [
   {
-    title: 'Grado Superior en Desarrollo de Aplicaciones Web (DAW)',
+    title: 'education.daw.title',
     institution: 'IES Alvaro Falomir',
     period: '2024 - Actualidad',
-    description: 'Formación en desarrollo web full stack: HTML, CSS, JavaScript, PHP, Java, MySQL, Despliegue de aplicaciones.'
+    description: 'education.daw.description'
   },
   {
-    title: 'Formación Adicional',
+    title: 'education.additional.title',
     institution: 'Online',
     period: 'En curso',
-    description: 'Ciberseguridad (Google), Data Science (IBM/Coursera), Desarrollo Web con Python (IBM)'
+    description: 'education.additional.description'
   }
 ];
 
 export const experience = [
   {
-    title: 'Desarrollador Web (Prácticas)',
+    title: 'experience.rental.title',
     company: 'Rental Holidays',
     period: 'Feb 2026 - Actualidad',
     responsibilities: [
-      'Desarrollo y mantenimiento de plataformas de gestión de alquileres vacacionales.',
-      'Optimización de interfaces de usuario y mejora de la experiencia de reserva.',
-      'Integración de APIs y gestión de datos en tiempo real.'
+      'experience.rental.resp1',
+      'experience.rental.resp2',
+      'experience.rental.resp3'
     ]
   },
   {
-    title: 'Asistente Técnico',
+    title: 'experience.smartnet.title',
     company: 'Smart Net (Ecuador)',
     period: 'Feb 2024 - May 2024',
     responsibilities: [
-      'Instalación y mantenimiento de redes de fibra óptica.',
-      'Soporte técnico y atención al cliente.',
-      'Armado de NAPs y configuración de troncales.'
+      'experience.smartnet.resp1',
+      'experience.smartnet.resp2',
+      'experience.smartnet.resp3'
     ]
   }
 ];
 
 export const projects = [
   {
-    title: 'ODS 2: Hambre Cero',
-    description: 'Proyecto web enfocado en la concienciación sobre el Objetivo de Desarrollo Sostenible 2 de la ONU. Interfaz responsiva, semántica y con contenido multimedia integrado.',
+    title: 'projects.ods2.title',
+    description: 'projects.ods2.description',
     techStack: ['HTML5', 'CSS3', 'Bootstrap', 'JavaScript'],
     repoLink: 'https://github.com/Arturex919/ods2-hambre_cero',
     demoLink: 'https://ods2s.netlify.app',
@@ -85,8 +85,8 @@ export const projects = [
     featured: true
   },
   {
-    title: 'Web para Restaurante',
-    description: 'Desarrollo de una página web completa para restaurante con sistema de pedidos, menú interactivo, modo oscuro y carrito de compras. Experiencia de usuario (UX/UI) optimizada.',
+    title: 'projects.restaurant.title',
+    description: 'projects.restaurant.description',
     techStack: ['HTML5', 'CSS3', 'JavaScript'],
     repoLink: 'https://github.com/Arturex919/PAGINA-WEB-RESTAURANTE',
     demoLink: 'https://stately-rabanadas-51f7e9.netlify.app',
@@ -95,8 +95,8 @@ export const projects = [
     featured: true
   },
   {
-    title: 'Gestor de Inventario',
-    description: 'Aplicación full stack para gestionar stock de productos con API REST, inspirada en mi experiencia profesional previa en logística. CRUD completo con autenticación.',
+    title: 'projects.inventory.title',
+    description: 'projects.inventory.description',
     techStack: ['Java', 'SpringBoot', 'MySQL'],
     repoLink: 'https://github.com/Arturex919',
     demoLink: null,
@@ -105,8 +105,8 @@ export const projects = [
     featured: true
   },
   {
-    title: 'FITAPP',
-    description: 'Aplicación de fitness con tracking de ejercicios, planes personalizados y seguimiento de progreso. Desarrollada con TypeScript y React.',
+    title: 'projects.fitapp.title',
+    description: 'projects.fitapp.description',
     techStack: ['TypeScript', 'React', 'CSS3'],
     repoLink: 'https://github.com/Arturex919/FITAPP',
     demoLink: null,
@@ -115,8 +115,8 @@ export const projects = [
     featured: false
   },
   {
-    title: 'SaaS de Facturación',
-    description: 'Sistema de facturación como servicio web con gestión de clientes, generación de facturas y reportes. Arquitectura escalable.',
+    title: 'projects.billing.title',
+    description: 'projects.billing.description',
     techStack: ['JavaScript', 'Node.js', 'MySQL'],
     repoLink: 'https://github.com/Arturex919/SaaS-de-facturacion',
     demoLink: null,
@@ -125,8 +125,8 @@ export const projects = [
     featured: false
   },
   {
-    title: 'Holidays & Envíos',
-    description: 'Aplicación Python para gestión de envíos y vacaciones con lógica de negocio compleja y manejo de datos.',
+    title: 'projects.holidays.title',
+    description: 'projects.holidays.description',
     techStack: ['Python', 'POO'],
     repoLink: 'https://github.com/Arturex919/holidays-envios',
     demoLink: null,
@@ -135,6 +135,7 @@ export const projects = [
     featured: false
   }
 ];
+
 
 export const certifications = [
   {

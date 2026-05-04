@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "about": "Sobre Mí",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Desarrollador Web Full Stack",
+    "subtitle": "Full Stack Developer - Java, Spring Boot, React, MySQL",
+    "fiverrTitle": "Web Developer - WordPress, HTML, CSS, JavaScript",
+    "description": "Estudiante de DAW especializado en frontend y backend. Enfocado en crear soluciones eficientes con código limpio.",
+    "cta": "Ver Proyectos",
+    "cv": "Descargar CV"
+  },
+  "sections": {
+    "experience": "Experiencia",
+    "education": "Educación",
+    "skills": "Habilidades",
+    "projects": "Proyectos Destacados",
+    "certifications": "Certificaciones",
+    "contact": "Contacto"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "text1": "Enfocado en crear soluciones eficientes mediante código limpio.",
+    "text2": "Actualmente curso el Grado Superior en DAW y realizo mis prácticas en Rental Holidays, aplicando mis conocimientos en proyectos reales."
+  },
+  "projects": {
+    "viewDemo": "Demo en Vivo",
+    "viewRepo": "Ver Código",
+    "description": "Proyectos seleccionados enfocados en eficiencia y calidad de código.",
+    "githubTitle": "¿Te interesa el proceso?",
+    "githubText": "Explora mis repositorios en GitHub para ver el código completo.",
+    "categories": {
+      "all": "Todos",
+      "frontend": "Frontend",
+      "fullstack": "Full Stack",
+      "backend": "Backend"
+    },
+    "ods2": {
+      "title": "ODS 2: Hambre Cero",
+      "description": "Proyecto web enfocado en la concienciación sobre el Objetivo de Desarrollo Sostenible 2 de la ONU. Interfaz responsiva, semántica y con contenido multimedia integrado."
+    },
+    "restaurant": {
+      "title": "Web para Restaurante",
+      "description": "Desarrollo de una página web completa para restaurante con sistema de pedidos, menú interactivo, modo oscuro y carrito de compras. Experiencia de usuario (UX/UI) optimizada."
+    },
+    "inventory": {
+      "title": "Gestor de Inventario",
+      "description": "Aplicación full stack para gestionar stock de productos con API REST, inspirada en mi experiencia profesional previa en logística. CRUD completo con autenticación."
+    },
+    "fitapp": {
+      "title": "FITAPP",
+      "description": "Aplicación de fitness con tracking de ejercicios, planes personalizados y seguimiento de progreso. Desarrollada con TypeScript y React."
+    },
+    "billing": {
+      "title": "SaaS de Facturación",
+      "description": "Sistema de facturación como servicio web con gestión de clientes, generación de facturas y reportes. Arquitectura escalable."
+    },
+    "holidays": {
+      "title": "Holidays & Envíos",
+      "description": "Aplicación Python para gestión de envíos y vacaciones con lógica de negocio compleja y manejo de datos."
+    }
+  },
+  "education": {
+    "daw": {
+      "title": "Grado Superior en Desarrollo de Aplicaciones Web (DAW)",
+      "description": "Formación en desarrollo web full stack: HTML, CSS, JavaScript, PHP, Java, MySQL, Despliegue de aplicaciones."
+    },
+    "additional": {
+      "title": "Formación Adicional",
+      "description": "Ciberseguridad (Google), Data Science (IBM/Coursera), Desarrollo Web con Python (IBM)"
+    }
+  },
+  "experience": {
+    "rental": {
+      "title": "Desarrollador Web (Prácticas)",
+      "resp1": "Desarrollo y mantenimiento de plataformas de gestión de alquileres vacacionales.",
+      "resp2": "Optimización de interfaces de usuario y mejora de la experiencia de reserva.",
+      "resp3": "Integración de APIs y gestión de datos en tiempo real."
+    },
+    "smartnet": {
+      "title": "Asistente Técnico",
+      "resp1": "Instalación y mantenimiento de redes de fibra óptica.",
+      "resp2": "Soporte técnico y atención al cliente.",
+      "resp3": "Armado de NAPs y configuración de troncales."
+    }
+  },
+  "contact": {
+    "title": "Hablemos",
+    "subtitle": "¿Tienes un proyecto en mente? ¡Contáctame!",
+    "name": "Nombre",
+    "email": "Correo",
+    "message": "Mensaje",
+    "send": "Enviar Mensaje",
+    "linkedin": "Perfil de LinkedIn",
+    "github": "GitHub",
+    "info": "Información",
+    "location": "Ubicación",
+    "namePlaceholder": "Ej. Arturo Tuarez",
+    "messagePlaceholder": "Cuéntame los detalles..."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
+  }
+}

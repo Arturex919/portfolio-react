@@ -1,8 +1,10 @@
 import React from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+    const { t } = useTranslation();
     return (
         <footer className="py-4 border-top border-color">
             <div className="container">
@@ -11,7 +13,7 @@ export default function Footer() {
                         <span className="text-uppercase x-small letter-spacing-1 fw-bold text-dark">
                             {personalInfo.name}
                         </span>
-                        <span className="text-muted x-small ms-2">— {personalInfo.title}</span>
+                        <span className="text-muted x-small ms-2">— {t('hero.title')}</span>
                     </div>
 
                     <div className="footer-socials d-flex gap-4">
