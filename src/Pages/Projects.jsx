@@ -9,28 +9,17 @@ export default function Projects() {
     const headerOffset = useParallax(0.15);
     const { t } = useTranslation();
 
-    const filters = useMemo(() => [
-        { id: 'all', label: (t('projects.categories.all') || '').toString().toUpperCase() },
-        { id: 'frontend', label: (t('projects.categories.frontend') || '').toString().toUpperCase() },
-        { id: 'fullstack', label: (t('projects.categories.fullstack') || '').toString().toUpperCase() },
-        { id: 'backend', label: (t('projects.categories.backend') || '').toString().toUpperCase() }
-    ], [t]);
+    const filters = [
+        { id: 'all', label: (t('projects.categories.all') || 'All').toUpperCase() },
+        { id: 'frontend', label: (t('projects.categories.frontend') || 'Frontend').toUpperCase() },
+        { id: 'fullstack', label: (t('projects.categories.fullstack') || 'Full Stack').toUpperCase() },
+        { id: 'backend', label: (t('projects.categories.backend') || 'Backend').toUpperCase() }
+    ];
 
-    const filteredProjects = useMemo(() => {
-        const sortedProjects = [...(projects || [])].sort((a, b) => {
-            if (a?.featured && !b?.featured) return -1;
-            if (!a?.featured && b?.featured) return 1;
-            return 0;
-        });
-
-        if (activeFilter === 'all') return sortedProjects;
-        
-        return sortedProjects.filter(project => {
-            const projectCat = project?.category?.toString().toLowerCase().replace(/\s+/g, '');
-            const filterId = activeFilter.toLowerCase().replace(/\s+/g, '');
-            return projectCat === filterId;
-        });
-    }, [activeFilter, projects]);
+    // Simple and direct filtering
+    const displayProjects = (projects || [])
+        .filter(p => activeFilter === 'all' || p.category === activeFilter)
+        .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
 
     return (
         <div className="projects-page py-5">
@@ -51,6 +40,7 @@ export default function Projects() {
                                 key={filter.id}
                                 onClick={() => setActiveFilter(filter.id)}
                                 className={`btn-filter ${activeFilter === filter.id ? 'active' : ''}`}
+                                type="button"
                             >
                                 {filter.label}
                             </button>
@@ -59,19 +49,22 @@ export default function Projects() {
                 </div>
 
                 <div className="row g-4">
-                    {filteredProjects.map((project, index) => (
+                    {displayProjects.map((project, index) => (
                         <ProjectCard
-                            key={`${project.title}-${index}`}
+                            key={`${project.category}-${index}`}
                             {...project}
                         />
                     ))}
                 </div>
                 
-                {filteredProjects.length === 0 && (
+                {displayProjects.length === 0 && (
                     <div className="text-center py-5">
-                        <p className="text-muted small">No projects in this category yet.</p>
-                        <button className="btn-modern btn-outline-modern btn-sm mt-3" onClick={() => setActiveFilter('all')}>
-                            VIEW ALL
+                        <p className="text-muted small">No hay proyectos en esta categoría todavía.</p>
+                        <button 
+                            className="btn-modern btn-outline-modern btn-sm mt-3" 
+                            onClick={() => setActiveFilter('all')}
+                        >
+                            VER TODOS
                         </button>
                     </div>
                 )}
