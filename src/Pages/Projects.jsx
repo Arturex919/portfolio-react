@@ -51,7 +51,7 @@ export default function Projects() {
                 <div className="row g-4">
                     {displayProjects.map((project, index) => (
                         <ProjectCard
-                            key={`${project.category}-${index}`}
+                            key={`${project.title || index}-${index}`}
                             {...project}
                         />
                     ))}
