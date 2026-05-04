@@ -103,40 +103,58 @@ export default function Contact() {
                                         <legend className="visually-hidden">Formulario de contacto</legend>
                                         <div className="row">
                                             <div className="col-md-6 mb-4">
-                                                <label htmlFor="name" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">{t('contact.name')}</label>
-                                                <input 
-                                                    id="name"
-                                                    type="text" 
-                                                    name="name" 
-                                                    className="form-control-minimal" 
-                                                    placeholder={t('contact.namePlaceholder')} 
-                                                    required 
-                                                    autoComplete="name"
-                                                />
+                                                <div className="field">
+                                                    <label htmlFor="name" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">
+                                                        {t('contact.name')} <span className="text-danger">*</span>
+                                                    </label>
+                                                    <input 
+                                                        id="name"
+                                                        type="text" 
+                                                        name="name" 
+                                                        className="form-control-minimal" 
+                                                        placeholder="Arturo Tuarez" 
+                                                        required 
+                                                        autoComplete="name"
+                                                        aria-describedby="name-helper"
+                                                    />
+                                                    <p id="name-helper" className="text-muted xx-small mt-2 mb-0">Introduce tu nombre completo para dirigirme a ti.</p>
+                                                </div>
                                             </div>
                                             <div className="col-md-6 mb-4">
-                                                <label htmlFor="email" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">{t('contact.email')}</label>
-                                                <input 
-                                                    id="email"
-                                                    type="email" 
-                                                    name="email" 
-                                                    className="form-control-minimal" 
-                                                    placeholder="arturo@ejemplo.com" 
-                                                    required 
-                                                    autoComplete="email"
-                                                />
+                                                <div className="field">
+                                                    <label htmlFor="email" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">
+                                                        {t('contact.email')} <span className="text-danger">*</span>
+                                                    </label>
+                                                    <input 
+                                                        id="email"
+                                                        type="email" 
+                                                        name="email" 
+                                                        className="form-control-minimal" 
+                                                        placeholder="tu@email.com" 
+                                                        required 
+                                                        autoComplete="email"
+                                                        aria-describedby="email-helper"
+                                                    />
+                                                    <p id="email-helper" className="text-muted xx-small mt-2 mb-0">Utiliza el email donde quieras recibir mi respuesta.</p>
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="mb-5">
-                                            <label htmlFor="message" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">{t('contact.message')}</label>
-                                            <textarea 
-                                                id="message"
-                                                name="message" 
-                                                className="form-control-minimal" 
-                                                rows="4" 
-                                                placeholder={t('contact.messagePlaceholder')} 
-                                                required
-                                            ></textarea>
+                                            <div className="field">
+                                                <label htmlFor="message" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">
+                                                    {t('contact.message')} <span className="text-danger">*</span>
+                                                </label>
+                                                <textarea 
+                                                    id="message"
+                                                    name="message" 
+                                                    className="form-control-minimal" 
+                                                    rows="4" 
+                                                    placeholder="Cuéntame sobre tu proyecto o propuesta..." 
+                                                    required
+                                                    aria-describedby="message-helper"
+                                                ></textarea>
+                                                <p id="message-helper" className="text-muted xx-small mt-2 mb-0">Describe brevemente lo que necesitas o tu idea.</p>
+                                            </div>
                                         </div>
                                         <button type="submit" className="btn-modern btn-primary-modern w-100 py-3 d-flex align-items-center justify-content-center gap-2" disabled={isSubmitting}>
                                             {isSubmitting ? (
