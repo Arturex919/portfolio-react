@@ -26,9 +26,9 @@ export default function Projects() {
         if (activeFilter === 'all') return sortedProjects;
         
         return sortedProjects.filter(project => {
-            const cat = project?.category?.toString().toLowerCase();
-            const filter = activeFilter.toLowerCase();
-            return cat === filter;
+            const projectCat = project?.category?.toString().toLowerCase().replace(/\s+/g, '');
+            const filterId = activeFilter.toLowerCase().replace(/\s+/g, '');
+            return projectCat === filterId;
         });
     }, [activeFilter, projects]);
 
@@ -69,9 +69,9 @@ export default function Projects() {
                 
                 {filteredProjects.length === 0 && (
                     <div className="text-center py-5">
-                        <p className="text-muted small">No hay proyectos en esta categoría todavía.</p>
+                        <p className="text-muted small">No projects in this category yet.</p>
                         <button className="btn-modern btn-outline-modern btn-sm mt-3" onClick={() => setActiveFilter('all')}>
-                            VER TODOS
+                            VIEW ALL
                         </button>
                     </div>
                 )}
