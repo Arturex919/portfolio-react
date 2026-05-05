@@ -83,7 +83,7 @@ export default function Contact() {
 
                         {/* Form Column */}
                         <div className="col-lg-8">
-                            <div className="contact-form-wrapper p-4 p-md-5 border border-color bg-white">
+                            <div className="contact-form-wrapper p-4 p-md-5 border border-color bg-white shadow-sm">
                                 {formStatus === 'success' && (
                                     <div className="alert alert-success border-0 rounded-0 mb-4 p-3 bg-light">
                                         <span className="fw-bold text-dark text-uppercase x-small letter-spacing-1">Mensaje enviado</span>
@@ -99,74 +99,50 @@ export default function Contact() {
                                 )}
 
                                 <form action="https://formspree.io/f/mbdawwqg" method="POST" onSubmit={handleSubmit}>
-                                    <fieldset disabled={isSubmitting} className="border-0 p-0 m-0">
-                                        <legend className="visually-hidden">Formulario de contacto</legend>
-                                        <div className="row">
-                                            <div className="col-md-6 mb-4">
-                                                <div className="field">
-                                                    <label htmlFor="name" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">
-                                                        {t('contact.name')} <span className="text-danger">*</span>
-                                                    </label>
-                                                    <input 
-                                                        id="name"
-                                                        type="text" 
-                                                        name="name" 
-                                                        className="form-control-minimal" 
-                                                        placeholder="Arturo Tuarez" 
-                                                        required 
-                                                        autoComplete="name"
-                                                        aria-describedby="name-helper"
-                                                    />
-                                                    <p id="name-helper" className="text-muted xx-small mt-2 mb-0">Introduce tu nombre completo para dirigirme a ti.</p>
-                                                </div>
-                                            </div>
-                                            <div className="col-md-6 mb-4">
-                                                <div className="field">
-                                                    <label htmlFor="email" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">
-                                                        {t('contact.email')} <span className="text-danger">*</span>
-                                                    </label>
-                                                    <input 
-                                                        id="email"
-                                                        type="email" 
-                                                        name="email" 
-                                                        className="form-control-minimal" 
-                                                        placeholder="tu@email.com" 
-                                                        required 
-                                                        autoComplete="email"
-                                                        aria-describedby="email-helper"
-                                                    />
-                                                    <p id="email-helper" className="text-muted xx-small mt-2 mb-0">Utiliza el email donde quieras recibir mi respuesta.</p>
-                                                </div>
-                                            </div>
+                                    <div className="row">
+                                        <div className="col-md-6 mb-4">
+                                            <label htmlFor="name" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">
+                                                {t('contact.name')}
+                                            </label>
+                                            <input 
+                                                id="name"
+                                                type="text" 
+                                                name="name" 
+                                                className="form-control border-0 bg-light p-3" 
+                                                placeholder="Tu nombre" 
+                                                required 
+                                            />
                                         </div>
-                                        <div className="mb-5">
-                                            <div className="field">
-                                                <label htmlFor="message" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">
-                                                    {t('contact.message')} <span className="text-danger">*</span>
-                                                </label>
-                                                <textarea 
-                                                    id="message"
-                                                    name="message" 
-                                                    className="form-control-minimal" 
-                                                    rows="4" 
-                                                    placeholder="Cuéntame sobre tu proyecto o propuesta..." 
-                                                    required
-                                                    aria-describedby="message-helper"
-                                                ></textarea>
-                                                <p id="message-helper" className="text-muted xx-small mt-2 mb-0">Describe brevemente lo que necesitas o tu idea.</p>
-                                            </div>
+                                        <div className="col-md-6 mb-4">
+                                            <label htmlFor="email" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">
+                                                {t('contact.email')}
+                                            </label>
+                                            <input 
+                                                id="email"
+                                                type="email" 
+                                                name="email" 
+                                                className="form-control border-0 bg-light p-3" 
+                                                placeholder="tu@email.com" 
+                                                required 
+                                            />
                                         </div>
-                                        <button type="submit" className="btn-modern btn-primary-modern w-100 py-3 d-flex align-items-center justify-content-center gap-2" disabled={isSubmitting}>
-                                            {isSubmitting ? (
-                                                <>
-                                                    <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                                    <span>{t('contact.send').toUpperCase()}...</span>
-                                                </>
-                                            ) : (
-                                                t('contact.send').toUpperCase()
-                                            )}
-                                        </button>
-                                    </fieldset>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label htmlFor="message" className="text-muted x-small text-uppercase letter-spacing-1 mb-2 d-block">
+                                            {t('contact.message')}
+                                        </label>
+                                        <textarea 
+                                            id="message"
+                                            name="message" 
+                                            className="form-control border-0 bg-light p-3" 
+                                            rows="5" 
+                                            placeholder="Tu mensaje..." 
+                                            required
+                                        ></textarea>
+                                    </div>
+                                    <button type="submit" className="btn btn-dark w-100 py-3 text-uppercase letter-spacing-2 fw-bold" disabled={isSubmitting}>
+                                        {isSubmitting ? 'Enviando...' : t('contact.send')}
+                                    </button>
                                 </form>
                             </div>
                         </div>

@@ -11,8 +11,13 @@ export default function Header() {
     const location = useLocation();
     const { t, i18n } = useTranslation();
 
+    const [scrollProgress, setScrollProgress] = useState(0);
+
     useEffect(() => {
         const handleScroll = () => {
+            const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const currentProgress = (window.scrollY / totalScroll) * 100;
+            setScrollProgress(currentProgress);
             setIsScrolled(window.scrollY > 20);
         };
         window.addEventListener('scroll', handleScroll);
@@ -56,11 +61,32 @@ export default function Header() {
     }, [isMobileMenuOpen]);
 
     return (
-        <header className={`modern-header ${isScrolled || isMobileMenuOpen ? 'scrolled' : ''}`}>
+        <header className={`modern-header ${isScrolled ? 'scrolled' : ''} ${isMobileMenuOpen ? 'menu-open' : ''}`}>
+            {/* Scroll Progress Bar */}
+            <div 
+                className="scroll-progress-bar" 
+                style={{ 
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    height: '2px',
+                    backgroundColor: 'var(--accent)',
+                    width: `${scrollProgress}%`,
+                    transition: 'width 0.1s ease-out',
+                    zIndex: 100
+                }}
+            />
             <nav className="navbar-container">
                 <div className="container d-flex align-items-center justify-content-between">
-                    <div className="d-flex align-items-center">
-                    </div>
+                    <Link 
+                        to="/" 
+                        className="brand-link d-flex" 
+                        viewTransition
+                        style={{ opacity: isMobileMenuOpen ? 0 : 1, pointerEvents: isMobileMenuOpen ? 'none' : 'auto' }}
+                    >
+                        <span className="brand-name">{personalInfo.name.split(' ')[0]}</span>
+                        <span className="brand-tag ms-1">{personalInfo.name.split(' ')[1]}</span>
+                    </Link>
 
                     <div className="desktop-nav d-flex align-items-center">
                         <div className="d-flex align-items-center gap-4">
@@ -86,9 +112,6 @@ export default function Header() {
                                         fontSize: '0.8rem', 
                                         color: 'var(--text-color)', 
                                         background: 'transparent',
-                                        minWidth: 'auto',
-                                        boxShadow: 'none',
-                                        outline: 'none',
                                         border: 'none',
                                         padding: 0
                                     }}
@@ -107,7 +130,7 @@ export default function Header() {
 
                                 <a 
                                     href={personalInfo.cvUrl} 
-                                    download 
+                                    download="CV_Arturo_Tuarez_Calle.pdf" 
                                     className="hover-underline text-uppercase x-small letter-spacing-1 fw-bold text-dark text-decoration-none opacity-75 hover-opacity-100"
                                     title={t('hero.cv')}
                                 >
@@ -121,6 +144,7 @@ export default function Header() {
                         className={`mobile-menu-btn d-lg-none ${isMobileMenuOpen ? 'active' : ''}`}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-label="Toggle menu"
+                        style={{ zIndex: 10003 }}
                     >
                         {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
@@ -138,24 +162,17 @@ export default function Header() {
                         left: 0,
                         right: 0,
                         bottom: 0,
-                        background: 'rgba(0, 0, 0, 0.4)',
-                        backdropFilter: 'blur(4px)',
-                        zIndex: 997
+                        background: 'rgba(0, 0, 0, 0.6)',
+                        backdropFilter: 'blur(8px)',
+                        zIndex: 10000
                     }}
                 />
             )}
             
             {/* Mobile Menu Sidebar */}
             <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-                <div className="mobile-menu-header d-flex justify-content-between align-items-center p-4 border-bottom">
+                <div className="mobile-menu-header">
                     <span className="text-uppercase x-small letter-spacing-2 fw-bold opacity-50">Menu</span>
-                    <button 
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="p-2 opacity-75 hover-opacity-100 transition-fast"
-                        style={{ color: 'var(--text-color)' }}
-                    >
-                        <X size={20} />
-                    </button>
                 </div>
                 
                 <div className="p-4">
@@ -198,7 +215,7 @@ export default function Header() {
                         
                         <a 
                             href={personalInfo.cvUrl} 
-                            download 
+                            download="CV_Arturo_Tuarez_Calle.pdf" 
                             className="btn-modern btn-primary-modern mt-5 w-100 text-center"
                             onClick={() => setIsMobileMenuOpen(false)}
                             style={{ fontSize: '0.8rem' }}
