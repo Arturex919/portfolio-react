@@ -78,15 +78,7 @@ export default function Header() {
             />
             <nav className="navbar-container">
                 <div className="container d-flex align-items-center justify-content-between">
-                    <Link 
-                        to="/" 
-                        className="brand-link d-flex" 
-                        viewTransition
-                        style={{ opacity: isMobileMenuOpen ? 0 : 1, pointerEvents: isMobileMenuOpen ? 'none' : 'auto' }}
-                    >
-                        <span className="brand-name">{personalInfo.name.split(' ')[0]}</span>
-                        <span className="brand-tag ms-1">{personalInfo.name.split(' ')[1]}</span>
-                    </Link>
+                    <div className="brand-placeholder" style={{ width: '40px' }}></div>
 
                     <div className="desktop-nav d-flex align-items-center">
                         <div className="d-flex align-items-center gap-4">
@@ -128,14 +120,6 @@ export default function Header() {
                                     {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
                                 </button>
 
-                                <a 
-                                    href={personalInfo.cvUrl} 
-                                    download="CV_Arturo_Tuarez_Calle.pdf" 
-                                    className="hover-underline text-uppercase x-small letter-spacing-1 fw-bold text-dark text-decoration-none opacity-75 hover-opacity-100"
-                                    title={t('hero.cv')}
-                                >
-                                    CV
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -213,15 +197,6 @@ export default function Header() {
                             ))}
                         </div>
                         
-                        <a 
-                            href={personalInfo.cvUrl} 
-                            download="CV_Arturo_Tuarez_Calle.pdf" 
-                            className="btn-modern btn-primary-modern mt-5 w-100 text-center"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            style={{ fontSize: '0.8rem' }}
-                        >
-                            {t('hero.cv')}
-                        </a>
                     </div>
                 </div>
             </div>

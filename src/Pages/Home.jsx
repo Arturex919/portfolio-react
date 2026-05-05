@@ -20,29 +20,23 @@ export default function Home() {
                                 className="hero-content animate-fade-in-up"
                                 style={{ transform: `translateY(${textOffset}px)` }}
                             >
-                                <div className="hero-greeting mb-3">
-                                    <div className="d-flex flex-column" style={{ gap: '4px' }}>
-                                        <span className="greeting-text text-uppercase letter-spacing-2 text-primary fw-bold" style={{ fontSize: '0.75rem' }}>
-                                            {t('hero.subtitle')}
-                                        </span>
-                                        <span className="greeting-text text-uppercase letter-spacing-2 opacity-50 fw-semibold" style={{ fontSize: '0.7rem', color: 'var(--text-color)' }}>
-                                            {t('hero.fiverrTitle')}
-                                        </span>
-                                    </div>
-                                </div>
+                                <h1 className="hero-name display-3 fw-bold mb-4 text-gradient reveal reveal-delay-1">
+                                    {personalInfo.name}
+                                </h1>
+                                <h2 className="h4 mb-4 opacity-75 fw-light reveal reveal-delay-2" style={{ letterSpacing: '2px' }}>
+                                    JAVA · SPRING BOOT · REACT · MYSQL
+                                </h2>
                                 
-                                <h1 className="hero-name display-3 fw-bold mb-4 text-gradient">{personalInfo.name}</h1>
-                                
-                                <p className="hero-description text-muted mb-5 leading-relaxed mx-auto mx-lg-0" style={{ maxWidth: '600px', fontSize: '0.95rem' }}>
+                                <p className="hero-description text-muted mb-5 leading-relaxed mx-auto mx-lg-0 reveal reveal-delay-3" style={{ maxWidth: '600px', fontSize: '0.95rem' }}>
                                     {t('hero.description')}
                                 </p>
                                 
-                                <div className="hero-cta d-flex gap-3 justify-content-center justify-content-lg-start">
+                                <div className="hero-cta d-flex gap-3 justify-content-center justify-content-lg-start reveal reveal-delay-4">
                                     <Link to="/projects" className="btn-modern btn-primary-modern" viewTransition>
-                                        {t('hero.cta')}
+                                        Explorar Proyectos
                                     </Link>
                                     <Link to="/contact" className="btn-modern btn-outline-modern" viewTransition>
-                                        {t('nav.contact')}
+                                        Hablemos de tu proyecto
                                     </Link>
                                 </div>
                             </div>

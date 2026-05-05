@@ -10,8 +10,8 @@ export default function ProjectCard({ title, description, techStack, repoLink, d
     const translatedDescription = (description && typeof description === 'string' && description.includes('.')) ? t(description) : description;
 
     return (
-        <div className="col-lg-6 mb-4 animate-on-scroll">
-            <div className="project-card-minimal h-100 p-4 border border-color hover-shadow-soft transition">
+        <div className="col-lg-6 mb-4 reveal">
+            <div className="project-card-minimal glass-shine h-100 p-4 border border-color hover-lift transition">
                 <div className="d-flex flex-column h-100">
                     <div className="mb-3">
                         <span className="text-accent x-small text-uppercase letter-spacing-1 mb-1 d-block">

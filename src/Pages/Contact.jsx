@@ -48,9 +48,9 @@ export default function Contact() {
         <div className="contact-page py-5">
             <section className="page-hero mb-5 overflow-hidden">
                 <div className="container" style={{ transform: `translateY(${headerOffset}px)` }}>
-                    <h1 className="display-4 fw-bold mb-3 mt-5">{t('contact.title')}</h1>
-                    <p className="text-muted small text-uppercase letter-spacing-1 mb-5" style={{ maxWidth: '600px' }}>
-                        {t('contact.subtitle')}
+                    <h1 className="display-4 fw-bold mb-3 mt-5 reveal">Hablemos de ingeniería</h1>
+                    <p className="text-muted small text-uppercase letter-spacing-1 mb-5 reveal reveal-delay-1" style={{ maxWidth: '600px' }}>
+                        ¿Tienes un desafío técnico o una arquitectura que escalar? Estoy listo para aportar soluciones de alto rendimiento.
                     </p>
                 </div>
             </section>
@@ -140,9 +140,18 @@ export default function Contact() {
                                             required
                                         ></textarea>
                                     </div>
-                                    <button type="submit" className="btn btn-dark w-100 py-3 text-uppercase letter-spacing-2 fw-bold" disabled={isSubmitting}>
-                                        {isSubmitting ? 'Enviando...' : t('contact.send')}
+                                    <button 
+                                        type="submit" 
+                                        className="btn-modern btn-primary-modern w-100 py-3" 
+                                        disabled={isSubmitting}
+                                    >
+                                        {isSubmitting ? 'PROCESANDO...' : 'INICIAR CONSULTA TÉCNICA'}
                                     </button>
+                                    <div className="text-center mt-3">
+                                        <span className="x-small text-muted letter-spacing-1 opacity-75">
+                                            TIEMPO MEDIO DE RESPUESTA: &lt; 24 HORAS
+                                        </span>
+                                    </div>
                                 </form>
                             </div>
                         </div>
